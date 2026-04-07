@@ -1,15 +1,25 @@
 {
   "name": "easy-tiger",
   "owner": {
-    "name": "Ola Pietka",
-    "url": "https://github.com/olapietka"
+    "name": "Ola Pietka"
+  },
+  "metadata": {
+    "description": "Scope creep guardian for Claude Code."
   },
   "plugins": [
     {
       "name": "easy-tiger",
       "source": "./",
-      "description": "A chill teammate that catches scope creep before it happens. Watches for 'while we're at it' moments and asks if you really need that feature.",
-      "version": "0.1.0"
+      "description": "Catches scope creep before you build it. Every time you say 'while we're at it...' easy-tiger casually asks if you actually need it for shipping. Friendly nudge, never blocks, stays silent when you're on track.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Ola Pietka"
+      },
+      "homepage": "https://github.com/olapietka/easy-tiger",
+      "repository": "https://github.com/olapietka/easy-tiger",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["scope-creep", "mvp", "focus", "productivity", "review"]
     }
   ]
 }
