@@ -40,7 +40,7 @@ claude --plugin-dir ./easy-tiger
 
 **Just build stuff.** That's the whole UX. When easy-tiger spots creep you'll see something like:
 
-> Easy, tiger. The chat assistant — is that part of shipping the app, or a different project entirely? Want to park it for later?
+> Easy, tiger — is the chat assistant a must-have, or a wouldn't-it-be-cool? Get the todo app shipping first, you can always add more later.
 
 **Tell it what you're shipping** (optional, makes interruptions sharper):
 
