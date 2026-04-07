@@ -1,112 +1,63 @@
 # easy-tiger
 
-A Claude Code plugin that catches scope creep before it happens.
+A Claude Code plugin that says "easy, tiger" when you're about to over-build.
 
-When you're building with Claude Code, it's dangerously easy to keep asking for "one more thing" until your MVP becomes a 6-month project. **easy-tiger** is a chill teammate that taps you on the shoulder and asks *"do you actually need this?"* before you over-build.
+You know that thing where you sit down to build a todo app, and somewhere along the way you're like *"oh, what if I also added a chat assistant to it? and a pomodoro timer? and habit tracking?"* — and three hours later you don't even have a working todo list? That.
 
-It's not a blocker. It's a friend.
+easy-tiger is the friend sitting next to you who goes *"hey, do you actually need that right now?"* before you spend the afternoon on it. It's not a blocker. It's a vibe check.
 
-## What it does
+## How it works
 
-**Automatic, in the background:** easy-tiger watches every non-trivial message you send. If it looks like scope creep, it interrupts lightly in character — *"Easy, tiger. Is this on the path to shipping, or a side quest?"* — and offers to park it for later.
+When you tell Claude to do something non-trivial, easy-tiger quietly checks: is this on the path to shipping, or a side quest? If it smells like creep, Claude responds in easy-tiger's voice — short, casual — and asks if you really need it. Say yes and it steps aside. Say no and it offers to park it for later.
 
-**On demand:** `/easy-tiger:easy-tiger` gives you a deep, honest scope review of the whole project. Reads your goal, recent git activity, and the conversation so far. Tells you what to cut.
+Trivial stuff (`yes`, `thanks`, `fix typo`) gets skipped, so does anything starting with `/`, `#`, or `*`. Silence is the default.
 
-**Goal-aware:** easy-tiger figures out what you're shipping — from an explicit `.easy-tiger/goal.md`, or a `## Goal` section in your `CLAUDE.md`, or your git branch + linked issue, or it asks you once. No upfront configuration required.
+It figures out what you're shipping from `.easy-tiger/goal.md`, then a `## Goal` section in `CLAUDE.md` or `AGENTS.md`, then your git branch + linked issue, then recent commits. If none of those exist it still catches the obvious stuff.
 
 ## Install
 
-### From the Claude Code marketplace (once published)
+From the marketplace:
 
 ```
 /plugin install easy-tiger
 ```
 
-### From GitHub
+From GitHub:
 
 ```
 /plugin marketplace add olapietka/easy-tiger
 /plugin install easy-tiger@olapietka/easy-tiger
 ```
 
-### For local development
+For local hacking:
 
 ```bash
 git clone https://github.com/olapietka/easy-tiger.git
 claude --plugin-dir ./easy-tiger
 ```
 
-## Usage
+## Use
 
-### Just build normally
+**Just build stuff.** That's the whole UX. When easy-tiger spots creep you'll see something like:
 
-easy-tiger is silent when you're on-track. When it thinks you're drifting, it speaks up — once, briefly, in character. You can always say "no, I need this" and it steps aside.
+> Easy, tiger. The chat assistant — is that part of shipping the app, or a different project entirely? Want to park it for later?
 
-### Set your goal (optional but recommended)
-
-```
-/easy-tiger:goal build a CLI that lints markdown files
-```
-
-View or clear it:
+**Tell it what you're shipping** (optional, makes interruptions sharper):
 
 ```
+/easy-tiger:goal build a todo app with local storage
 /easy-tiger:goal view
 /easy-tiger:goal clear
 ```
 
-If you don't set a goal explicitly, easy-tiger falls back to:
-1. A `## Goal` section in `CLAUDE.md` or `AGENTS.md`
-2. Your current git branch + linked issue (`gh issue view`)
-3. Recent commit history
-4. General mode (still catches obvious creep, just without a specific anchor)
-
-### Get a deep review
+**Get a real scope review** when you're feeling lost:
 
 ```
 /easy-tiger:easy-tiger
+/easy-tiger:easy-tiger the chat assistant feature
 ```
 
-Or target a specific area:
-
-```
-/easy-tiger:easy-tiger the new websocket stuff
-```
-
-## How it works
-
-- **`hooks/session-start.sh`** — On every session start, injects the easy-tiger persona and the inferred goal into Claude's context. Claude carries that awareness for the rest of the session.
-- **`hooks/prompt-check.js`** — On every non-trivial user message, wraps it with a short evaluation prompt. Claude itself judges whether the message is on-goal or scope creep, using the full conversation context it already has. The hook never calls an LLM — it just injects context.
-- **`skills/easy-tiger/SKILL.md`** — The manual deep-review skill. Reads everything, gives an honest take.
-- **`skills/goal/SKILL.md`** — Lets you set, view, or clear the current goal.
-- **`lib/personality.md`** — Source of truth for the easy-tiger voice. Hooks inline it because Claude Code hooks can't import shared files.
-
-### Fast-path bypasses
-
-easy-tiger skips evaluation entirely for:
-- Slash commands (`/...`)
-- Memorize messages (`#...`)
-- Explicit user bypass (`*...`)
-- Trivial messages (< 30 chars, "yes", "thanks", "fix typo", etc.)
-
-So short conversational turns cost nothing.
-
-### Two scenarios it catches
-
-| Scenario | Example |
-|----------|---------|
-| **You initiate creep** | "While we're at it, let's also add dark mode" |
-| **Claude proposes, you accept** | Claude: *"I'd also suggest adding caching."* You: *"Sure."* |
-
-Both work because Claude reviews the conversation context — including its own previous turn — on every message.
-
-## Philosophy
-
-The problem isn't Claude. It's you (and me, and everyone). You keep saying *"while we're at it..."* and Claude happily obliges because that's its job.
-
-easy-tiger is the friend who says *"do you really need that?"* before you spend 3 hours on a feature nobody asked for.
-
-Ship small. Ship fast. Add more later.
+It reads your goal, your git history, and the conversation, then gives you an honest take on what to keep and what to cut.
 
 ## License
 
