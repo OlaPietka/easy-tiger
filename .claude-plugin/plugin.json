@@ -1,0 +1,10 @@
+{
+  "name": "easy-tiger",
+  "description": "A chill teammate that challenges scope creep before it happens. Taps you on the shoulder when you're about to over-build.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Ola Pietka"
+  },
+  "repository": "https://github.com/olapietka/easy-tiger",
+  "license": "MIT"
+}

@@ -1,0 +1,15 @@
+{
+  "name": "easy-tiger",
+  "owner": {
+    "name": "Ola Pietka",
+    "url": "https://github.com/olapietka"
+  },
+  "plugins": [
+    {
+      "name": "easy-tiger",
+      "source": "./",
+      "description": "A chill teammate that catches scope creep before it happens. Watches for 'while we're at it' moments and asks if you really need that feature.",
+      "version": "0.1.0"
+    }
+  ]
+}
