@@ -1,3 +1,13 @@
+<p align="center">
+  <img src="assets/banner.svg" alt="easy-tiger" width="640">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License">
+  <img src="https://img.shields.io/badge/version-0.1.0-f59e0b.svg" alt="Version 0.1.0">
+  <img src="https://img.shields.io/badge/for-Claude%20Code-7c3aed.svg" alt="For Claude Code">
+</p>
+
 # easy-tiger
 
 A Claude Code plugin that says "easy, tiger" when you're about to over-build.
