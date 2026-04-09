@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1526"/>
+      <stop offset="100%" stop-color="#060a14"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <!-- Mascot with stop sign -->
+  <g transform="translate(110, 180) scale(13)" shape-rendering="crispEdges">
+
+    <!-- Claude "Antigravity" mascot, inlined -->
+    <path clip-rule="evenodd" fill-rule="evenodd" fill="#e8a05c"
+          d="M20.998 10.949H24v3.102h-3v3.028h-1.487V20H18v-2.921h-1.487V20H15v-2.921H9V20H7.488v-2.921H6V20H4.487v-2.921H3V14.05H0V10.95h3V5h17.998v5.949zM6 10.949h1.488V8.102H6v2.847zm10.51 0H18V8.102h-1.49v2.847z"/>
+
+    <!-- Stop sign on a stick -->
+    <!-- Stick -->
+    <rect x="22" y="2" width="1.5" height="9" fill="#8B5E3C"/>
+    <!-- Sign plate (red octagon approximation) -->
+    <rect x="20"   y="-4.5" width="6"   height="1.5" fill="#dc2626"/>
+    <rect x="18.5" y="-3"   width="9"   height="1.5" fill="#dc2626"/>
+    <rect x="18.5" y="-1.5" width="9"   height="1.5" fill="#dc2626"/>
+    <rect x="18.5" y="0"    width="9"   height="1.5" fill="#dc2626"/>
+    <rect x="20"   y="1.5"  width="6"   height="1.5" fill="#dc2626"/>
+    <!-- White dash -->
+    <rect x="20" y="-1.5" width="6" height="1.5" fill="#ffffff"/>
+
+  </g>
+
+  <!-- Title -->
+  <text x="490" y="345" font-family="Georgia, 'Times New Roman', serif" font-size="140" font-weight="bold" fill="#f59e0b">
+    easy-tiger
+  </text>
+
+  <!-- Tagline -->
+  <text x="498" y="420" font-family="-apple-system, system-ui, sans-serif" font-size="40" fill="#8a9bb5" font-style="italic">
+    because "just one more feature" is a lie
+  </text>
+</svg>
