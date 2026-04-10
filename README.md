@@ -26,7 +26,7 @@ It figures out what you're shipping from `.easy-tiger/goal.md`, then a `## Goal`
 
 ## Install
 
-From the marketplace:
+From the marketplace (waiting for approval):
 
 ```
 /plugin install easy-tiger
